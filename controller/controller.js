@@ -14,7 +14,7 @@ exports.booklist = function *() {
 }
 exports.bookrank = function *() {
     var bodyParse = this.request.body;
-    var data = [];
+    //var data = [];
     for (var key in bodyParse){
         var title = bodyParse[key].bookname;
         var rank = bodyParse[key].rank;
@@ -27,15 +27,16 @@ exports.bookrank = function *() {
             'rank' : rank
         }
         yield mongo.update(mongodb,'bookrank',filter,document);
-        var result = {
+        /*var result = {
             'title' : title,
             'average' : (rank / count).toFixed(1),
             'count' : count,
             'image' : doc.image,
             'rating' : doc.rating
         };
-        data.push(result);
+        data.push(result);*/
     }
+    var data = yield mongo.find(mongodb,"bookrank");
     this.body = data;
   /*  var filter = {"title":name};
     var doc = yield mongo.findOne(mongodb,"bookrank",filter);
