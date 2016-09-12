@@ -52,6 +52,11 @@ exports.bookrank = function *() {
         this.body = {'title':doc.title,'average':doc.rank  / doc.count,'count':doc.count}
     }*/
 }
+exports.userinfo = function *() {
+    var bodyParse = this.request.body;
+    yield mongo.insert(mongodb,'userinfo',bodyParse);
+    this.body = 'success'
+}
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
