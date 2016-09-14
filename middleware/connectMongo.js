@@ -9,13 +9,8 @@ if(process.env.BS_ENV == 'dev'){
 }else{
     var _auth = config.mongo.user+':'+config.mongo.pass+'@';
 }
-var host = config.mongo.host;
-console.log(host);
+var host = config.mongo.host + ':27017';
 MongoClient.connect('mongodb://' + _auth + host +'/' + config.mongo.db,c_opt,function (err,db) {
     global.mongodb = db;
-    var cursor = db.collection('bookrank').find();
-    cursor.each(function (err,data) {
-        console.log(data);
-    })
     console.log('connect to mongo success!');
 })
