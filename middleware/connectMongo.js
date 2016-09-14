@@ -14,7 +14,7 @@ console.log(host);
 MongoClient.connect('mongodb://' + _auth + host +'/' + config.mongo.db,c_opt,function (err,db) {
     global.mongodb = db;
     var cursor = db.collection('bookrank').find();
-    cursor.each(function (err,datt) {
+    cursor.each(function (err,data) {
         console.log(data);
     })
     console.log('connect to mongo success!');

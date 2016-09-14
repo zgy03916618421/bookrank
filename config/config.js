@@ -10,3 +10,4 @@ var config = {
         pass : process.env.BS_MONGOPASS || 'TG5v9n7E'
     }
 }
+module.exports = config;
