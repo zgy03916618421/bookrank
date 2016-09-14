@@ -55,7 +55,7 @@ exports.bookrank = function *() {
 exports.userinfo = function *() {
     var bodyParse = this.request.body;
     yield mongo.insert(mongodb,'userinfo',bodyParse);
-    this.body = 'success'
+    this.body = {'code':200,'status':'success'}
 }
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
