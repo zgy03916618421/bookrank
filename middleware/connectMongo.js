@@ -9,8 +9,8 @@ if(process.env.BS_ENV == 'dev'){
 }else{
     var _auth = config.mongo.user+':'+config.mongo.pass+'@';
 }
-var host = config.mongo.host + ':27017';
-MongoClient.connect('mongodb://'+ host +'/' + config.mongo.db,c_opt,function (err,db) {
+//var host = config.mongo.host + ':27017';
+MongoClient.connect('mongodb://192.168.100.2:27017/bookface',c_opt,function (err,db) {
     global.mongodb = db;
     console.log('connect to mongo success!');
 })
